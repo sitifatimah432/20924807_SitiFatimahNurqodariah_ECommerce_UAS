@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keranjang Belanja - Siti Fatimah Fashion</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts: Quicksand & Nunito -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!-- Bagian Header dan Navigasi -->
+    <header>
+        <div class="container">
+            <h1 class="logo">Siti Fatimah Fashion</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#produk">Produk</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                    <li><a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Bagian Isi Keranjang -->
+    <main class="container">
+        <h2 class="section-title">Keranjang Belanja Anda</h2>
+        <div class="cart-container">
+            <!-- Bagian ini menampilkan pesan jika keranjang kosong -->
+            <div id="empty-cart-message">
+                <!-- Pesan ramah dan elegan jika keranjang kosong -->
+                <p>🛍️ Keranjang belanja Anda masih kosong. Yuk, lihat koleksi kami!</p>
+                <a href="index.html#produk" class="btn-lihat"><i class="fas fa-shopping-bag"></i> Lihat Koleksi</a>
+            </div>
+
+            <!-- Bagian ini menampilkan pesan jika keranjang terisi -->
+            <div id="cart-not-empty-message" style="display:none; text-align:center; margin-bottom: 1rem; font-weight: 600; font-family: 'Quicksand', sans-serif; color: var(--text-color);">
+                Berikut adalah pilihan terbaik Anda. Siap untuk checkout?
+            </div>
+
+            <!-- Daftar item di keranjang, akan diisi oleh JavaScript -->
+            <div id="cart-items">
+                <!-- Contoh item, akan dihapus dan diganti oleh JS
+                <div class="cart-item">
+                    <img src="https://picsum.photos/seed/hijab1/100/100" alt="Product Image">
+                    <div class="cart-item-details">
+                        <h3>Gamis Elegan Aisyah</h3>
+                        <p>Jumlah: 1</p>
+                    </div>
+                    <div class="cart-item-actions">
+                        <p class="price">Rp 450.000</p>
+                        <button class="remove-btn"><i class="fas fa-trash-alt"></i> Hapus</button>
+                    </div>
+                </div> 
+                -->
+            </div>
+
+            <!-- Ringkasan Total Belanja -->
+            <div class="cart-summary">
+                <h2>Total Belanja</h2>
+                <p>Total Harga: <span id="cart-total">Rp 0</span></p>
+                <button class="btn">Lanjut ke Pembayaran</button>
+                <!-- Tombol Hapus Semua -->
+                <button id="clear-cart-btn" class="btn" style="background-color: #f8c8d8; color: #6a1b4d; margin-left: 10px;">
+                    <i class="fas fa-trash-alt"></i> Hapus Semua
+                </button>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- Bagian Footer -->
+    <!-- Bagian ini menampilkan footer dengan informasi hak cipta -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Siti Fatimah Fashion. All Rights Reserved.</p>
+            <div class="footer-contact-info">
+                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:sitifatimahnurq29@gmail.com">sitifatimahnurq29@gmail.com</a></p>
+                <p><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/sitifatimah.fashion" target="_blank" rel="noopener">@sitifatimah.fashion</a></p>
+                <p><i class="fab fa-twitter"></i> X (Twitter): <a href="https://twitter.com/sitifatimah_fshn" target="_blank" rel="noopener">@sitifatimah_fshn</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> Lokasi: Bandung, Indonesia</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
