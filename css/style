@@ -1,1 +1,559 @@
-p
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-color: #FFFFFF; /* Putih */
+    --secondary-color: #F0EAD6; /* Emas Lembut / Krem */
+    --accent-color: #D4AF37; /* Emas lebih tegas untuk aksen */
+    --text-color: #333333;
+    --font-primary: 'Quicksand', sans-serif;
+    --font-secondary: 'Nunito', sans-serif;
+    --border-radius: 15px;
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    --transition-speed: 0.3s;
+}
+
+body {
+    font-family: var(--font-secondary);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #FCFCFC;
+    margin: 0;
+    padding: 0;
+    transition: background-color var(--transition-speed) ease;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent-color);
+    transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+    color: #b89a2d;
+}
+
+/* Smooth transition for images */
+img {
+    max-width: 100%;
+    height: auto;
+    transition: transform var(--transition-speed) ease;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+/* --- Header & Navigation --- */
+header {
+    background-color: var(--primary-color);
+    box-shadow: var(--box-shadow);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* Ornamen Arabesque di header */
+    background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');
+    background-repeat: repeat;
+    background-size: auto;
+    transition: background-color var(--transition-speed) ease;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    font-weight: 600;
+    font-family: var(--font-primary);
+    padding-bottom: 5px;
+    position: relative;
+    transition: color var(--transition-speed) ease;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--accent-color);
+    transition: width var(--transition-speed) ease;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;
+}
+
+.cart-icon {
+    font-size: 1.2rem;
+}
+
+/* --- Tombol (Button) --- */
+.btn {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 12px 25px;
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color var(--transition-speed) ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #b89a2d;
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* --- Hero Section --- */
+.hero {
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('https://picsum.photos/seed/bg/1200/600') no-repeat center center/cover;
+    color: var(--text-color);
+    text-align: center;
+    padding: 6rem 0;
+    transition: background-color var(--transition-speed) ease;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Product Grid --- */
+main {
+    padding: 4rem 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-color);
+    margin: 10px auto 0;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    background-color: var(--primary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    text-align: center;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.product-card h3 {
+    font-size: 1.4rem;
+    margin: 1rem 0 0.5rem;
+}
+
+.product-card .price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+}
+
+.product-card .btn {
+    margin-bottom: 1.5rem;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+    /* Ornamen Arabesque di footer */
+    background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');
+    background-repeat: repeat;
+    background-size: auto;
+    transition: background-color var(--transition-speed) ease;
+}
+
+.footer-contact-info {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.footer-contact-info p {
+    margin: 0.3rem 0;
+}
+
+.footer-contact-info i {
+    margin-right: 8px;
+    color: var(--accent-color);
+}
+
+/* --- Halaman Detail Produk --- */
+.product-detail-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+.product-image-gallery img {
+    width: 100%;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: transform var(--transition-speed) ease;
+}
+
+.product-image-gallery img:hover {
+    transform: scale(1.05);
+}
+
+.product-info h1 {
+    font-size: 2.8rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.product-info .price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+}
+
+.product-info .description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.product-info .btn {
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 1.2rem;
+}
+
+/* --- Halaman Kontak --- */
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background: var(--primary-color);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: box-shadow var(--transition-speed) ease;
+}
+
+.contact-form:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-family: var(--font-primary);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    box-sizing: border-box; /* Menambahkan ini agar padding tidak menambah lebar */
+    transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px var(--accent-color);
+    outline: none;
+}
+
+/* --- Halaman Keranjang (Cart) --- */
+.cart-container {
+    width: 100%;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--primary-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 1.5rem;
+    transition: box-shadow var(--transition-speed) ease;
+}
+
+.cart-item:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 1.5rem;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+}
+
+.cart-item-details h3 {
+    margin: 0 0 10px;
+}
+
+.cart-item-actions {
+    text-align: right;
+}
+
+.cart-item-actions .price {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.remove-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background var(--transition-speed) ease;
+}
+
+.remove-btn:hover {
+    background: #c0392b;
+}
+
+/* --- Cart Quantity Controls --- */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+.quantity-controls button {
+    background-color: var(--accent-color);
+    border: none;
+    color: var(--primary-color);
+    padding: 5px 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0 5px;
+    transition: background-color var(--transition-speed) ease;
+}
+
+.quantity-controls button:hover {
+    background-color: #b89a2d;
+}
+
+.quantity-controls span {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* --- Cart Summary --- */
+.cart-summary {
+    margin-top: 2rem;
+    background: var(--secondary-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    text-align: right;
+    transition: background-color var(--transition-speed) ease;
+}
+
+.cart-summary h2 {
+    margin-top: 0;
+    text-align: left;
+}
+
+#cart-total {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+#empty-cart-message {
+    text-align: center;
+    padding: 3rem 0;
+    font-size: 1.2rem;
+}
+
+/* --- Media Queries untuk Responsif --- */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    header .container {
+        flex-direction: column;
+    }
+
+    nav ul {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 5px 10px;
+    }
+
+    .hero h2 {
+        font-size: 2.2rem;
+    }
+
+    .product-detail-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cart-item img {
+        margin-bottom: 1rem;
+    }
+
+    .cart-item-actions {
+        margin-top: 1rem;
+        width: 100%;
+    }
+}
+
+/* --- Style khusus untuk tombol Lihat Koleksi --- */
+.btn-lihat {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--accent-color);
+    padding: 12px 25px;
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform 0.2s ease;
+    cursor: pointer;
+    border: 2px solid var(--accent-color);
+    text-align: center;
+}
+
+.btn-lihat:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* --- Penyesuaian style tombol Hapus Semua --- */
+#clear-cart-btn {
+    background-color: #f8c8d8; /* pink pastel lembut */
+    color: #6a1b4d; /* warna gelap untuk kontras */
+    border: 2px solid #d48cae; /* border pink pastel */
+    padding: 12px 25px;
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform 0.2s ease;
+    cursor: pointer;
+    text-align: center;
+}
+
+#clear-cart-btn:hover {
+    background-color: #d48cae; /* pink pastel lebih gelap */
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
